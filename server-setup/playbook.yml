@@ -1,0 +1,8 @@
+- hosts: awx-server
+  become: yes
+  become_user: root
+  tasks:
+  roles:
+    - hostname
+    - require
+    - awx

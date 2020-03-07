@@ -1,0 +1,7 @@
+- name: "git clone awx"
+  git:
+    repo: "https://github.com/ansible/awx.git"
+    dest: /tmp/awx
+
+- name: "execute ansible-playbook -i /tmp/awx/installer/inventory /tmp/awx/installer/install.yml"
+  command: ansible-playbook -i /tmp/awx/installer/inventory /tmp/awx/installer/install.yml

@@ -1,0 +1,82 @@
+- name: "enable python2"
+  shell: unlink /usr/bin/python && ln -s /usr/bin/python2 /usr/bin/python
+
+- name: "yum install python3"
+  yum:
+    name: python3
+
+- name: "yum install python3-pip"
+  yum:
+    name: python3-pip
+
+- name: "yum install python3-devel"
+  yum:
+    name: python3-devel
+
+- name: "yum install pip3"
+  yum:
+    name: docker
+
+# Amazon Linux 2 では extras でインストールするしかない
+- name: "enable to ansible2"
+  shell: "amazon-linux-extras enable ansible2"
+
+- name: "yum install ansible2"
+  yum:
+    name: ansible
+    enablerepo: amzn2extra-ansible2
+    state: present
+
+- name: "pip install ansible"
+  pip:
+    name: ansible
+    executable: pip3
+
+- name: "yum install docker"
+  yum:
+    name: docker
+
+- name: "Start docker daemon"
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: "pip install docker"
+  pip:
+    name: docker
+    executable: pip3
+
+- name: "yum install docker-compose"
+  yum:
+    name: docker
+
+- name: "pip install docker-compose"
+  pip:
+    name: docker-compose
+    executable: pip3
+
+- name: "yum install git"
+  yum:
+    name: git
+
+- name: "download nodejs install.sh"
+  shell: curl -sL https://rpm.nodesource.com/setup_10.x > ~/install.sh
+
+- name: "setup nodejs install.sh"
+  command: bash ~/install.sh
+
+- name: "yum install nodejs"
+  yum:
+    name: nodejs
+
+- name: "yum install gcc-c++"
+  yum:
+    name: gcc-c++
+
+- name: "yum install make"
+  yum:
+    name: make
+
+- name: "enable python3"
+  shell: unlink /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python

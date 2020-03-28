@@ -32,6 +32,11 @@
     name: ansible
     executable: pip3
 
+- name: "pip install ansible-tower-cli"
+  pip:
+    name: ansible-tower-cli
+    executable: pip3
+
 - name: "yum install docker"
   yum:
     name: docker
@@ -69,6 +74,11 @@
 - name: "yum install nodejs"
   yum:
     name: nodejs
+
+- name: "rm ~/install.sh"
+  file:
+    path: ~/install.sh
+    state: absent
 
 - name: "yum install gcc-c++"
   yum:

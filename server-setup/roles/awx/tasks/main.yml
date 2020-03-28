@@ -5,3 +5,8 @@
 
 - name: "execute ansible-playbook -i /tmp/awx/installer/inventory /tmp/awx/installer/install.yml"
   command: ansible-playbook -i /tmp/awx/installer/inventory /tmp/awx/installer/install.yml
+
+- name: "rm aws.git dir"
+  file:
+    path: /tmp/awx
+    state: absent

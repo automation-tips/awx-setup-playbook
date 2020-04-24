@@ -13,7 +13,7 @@
   yum:
     name: python3-devel
 
-- name: "yum install pip3"
+- name: "yum install docker"
   yum:
     name: docker
 

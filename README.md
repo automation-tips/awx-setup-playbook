@@ -41,3 +41,7 @@ $ ansible-playbook -i inventory/hosts playbook.yml
 
 - ユーザー名： admin
 - パスワード： password
+
+## 自作モジュールの配置先
+
+共有ボリュームの /var/lib/awx/projects に保存

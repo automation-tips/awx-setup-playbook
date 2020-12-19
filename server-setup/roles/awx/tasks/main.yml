@@ -3,8 +3,8 @@
     repo: "https://github.com/ansible/awx.git"
     dest: /tmp/awx
 
-- name: "execute ansible-playbook -i /tmp/awx/installer/inventory /tmp/awx/installer/install.yml"
-  command: ansible-playbook -i /tmp/awx/installer/inventory /tmp/awx/installer/install.yml
+- name: "execute ansible-playbook -i /tmp/awx/installer/inventory /tmp/awx/installer/install.yml --extra-vars 'project_data_dir=/var/lib/awx/projects'"
+  command: ansible-playbook -i /tmp/awx/installer/inventory /tmp/awx/installer/install.yml --extra-vars "project_data_dir=/var/lib/awx/projects"
 
 - name: "rm aws.git dir"
   file:
